@@ -1,0 +1,19 @@
+main {
+  margin-top: 30px;
+}
+
+.row, .flex-row, .flex-row-reverse {
+  margin-bottom: 30px;
+}
+
+.table-centered {
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.card-img-top {
+  width: 80%;
+  margin: 1rem auto;
+}

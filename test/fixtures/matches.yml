@@ -1,0 +1,38 @@
+ken_ryu_lol_first_blood:
+  game: lol
+  player1: ken
+  player2: ryu
+  score1: 10.0
+  score2: 5.0
+  winner: ken
+
+ryu_ken_lol_rematch:
+  game: lol
+  player1: ryu
+  player2: ken
+  score1: 8.0
+  score2: 9.0
+  winner: ryu
+
+ken_ryu_lol_tie_break:
+  game: lol
+  player1: ken
+  player2: ryu
+  score1: 2.0
+  score2: 1.0
+
+blanka_ken_wow:
+  game: wow
+  player1: blanka
+  player2: ken
+  score1: 4.0
+  score2: 5.0
+  winner: ken
+
+ryu_blanka_pubg:
+  game: pubg
+  player1: ryu
+  player2: blanka
+  score1: 1.0
+  score2: 3.0
+  winner: blanka

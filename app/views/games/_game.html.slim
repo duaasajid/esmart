@@ -1,0 +1,16 @@
+tr
+  td
+    = image_tag game.logo.variant(resize: '100x75'), alt: game.title, title: game.title
+  td= game.title
+  td= GamerProfile.where(game: game, user: current_user).first&.handle
+  td
+    - if current_user.games.include?(game)
+      = link_to remove_game_path(game), method: :post, class: 'btn btn-danger', title: 'Remove from my games' do
+        i.fa.fa-times
+        |&nbsp;
+        |Remove from my games
+    - else
+      = button_tag class: 'btn btn-primary', title: 'Add to my games', data: { action: 'games#showModal', id: game.id, title: game.title } do
+        i.fa.fa-plus
+        |&nbsp;
+        |Add to my games

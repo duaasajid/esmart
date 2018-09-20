@@ -1,0 +1,17 @@
+{
+  "name": "esmart",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "stimulus": "^1.1.0"
+  },
+  "devDependencies": {
+    "bootstrap": "4.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.4",
+    "rails-ujs": "^5.2.1",
+    "turbolinks": "^5.2.0",
+    "webpack-dev-server": "2.11.2"
+  }
+}

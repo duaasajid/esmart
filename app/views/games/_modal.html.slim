@@ -1,0 +1,16 @@
+.modal role="dialog" tabindex="-1" data-controller="modal" data-action="show->modal#show" data-target="modal.modal"
+  .modal-dialog role="document"
+    .modal-content
+      = form_tag '#', method: :post, data: { target: 'modal.form', remote: true, action: 'ajax:success->modal#success ajax:error->modal#error' } do
+        .modal-header
+          h5.modal-title data-target="modal.title" Modal title
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true" &times;
+        .modal-body
+          .form-group
+            = label_tag :handle
+            = text_field_tag :handle, nil, class: 'form-control', data: { target: 'modal.handle' }
+            .div.invalid-feedback.d-none data-target='modal.errorMsg'
+        .modal-footer
+          = submit_tag 'Add', class: 'btn btn-primary', data: { disable_with: 'Adding...' }
+          button.btn.btn-secondary data-dismiss="modal" type="button" Cancel

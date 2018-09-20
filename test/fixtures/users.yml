@@ -1,0 +1,16 @@
+ken:
+  email: ken@capcom.com
+  encrypted_password: <%= BCrypt::Password.create('12345678', cost: BCrypt::Engine::MIN_COST) %>
+  reputation: 9.0
+
+ryu:
+  email: ryu@capcom.com
+  encrypted_password: <%= BCrypt::Password.create('12345678', cost: BCrypt::Engine::MIN_COST) %>
+  reputation: 3.0
+
+blanka:
+  email: blanka@capcom.com
+  encrypted_password: <%= BCrypt::Password.create('12345678', cost: BCrypt::Engine::MIN_COST) %>
+  reputation: 7.5
+  deleted_at: <%= 5.weeks.ago %>
+

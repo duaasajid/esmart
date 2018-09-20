@@ -1,0 +1,21 @@
+wow:
+  title: World of Warcraft
+  slug: wow
+  api_url: https://api.blizzard.com/results
+  enabled: true
+
+lol:
+  title: League of Legends
+  slug: lol
+  api_url: https://api.riot.com/results
+  enabled: true
+
+pubg:
+  title: PlayerUnknown's Battlegrounds
+  slug: pubg
+  enabled: true
+
+lineage:
+  title: Lineage
+  slug: lineage
+  enabled: false

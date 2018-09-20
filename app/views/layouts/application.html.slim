@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    title E-Sports Marketplace
+    meta content=("#{content_for?(:description) ? yield(:description) : "E-Sports Marketplace"}") name="description" /
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    header
+      == render 'layouts/navigation'
+    main.container role='main'
+      == render 'layouts/messages'
+      = yield

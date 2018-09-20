@@ -1,0 +1,11 @@
+.card
+  h5.card-header Now playing
+  .card-body
+    - if @current_matches.size > 0
+      table.table.table-centered
+        tbody
+          = render partial: 'match', collection: @current_matches
+    - else
+      | No matches at the moment
+  .card-footer
+    = link_to 'See all', matches_path, class: 'btn btn-primary'
