@@ -62,7 +62,7 @@ If you have seeded the db, you'll be able to sign in using any of the emails:
 * ken@capcom.com
 * ryu@capcom.com
 
-and password `12345678` (super secure, don't tell anyone!).
+and password `12345678` (über secure, don't tell anyone!).
 
 # TODOs
 
@@ -97,7 +97,7 @@ We started out with the best intentions to test whatever we write, but in classi
 
 Can you improve test coverage for the app? No need to test everything, but do try to focus on the most critical business logic.
 
-In your email to use, please include 1-2 sentences on why you chose to test what you did.
+In your email to us, please include 1-2 sentences on why you chose to test what you did.
 
 ## Bug fixes
 
@@ -109,6 +109,10 @@ Better safe than sorry we suppose.
 Per our implementation of GDPR, all users that have cancelled their accounts more that one month ago should be purged, along with their data. Account cancellation is a soft-delete, with hard deletion happening in a delayed fashion.
 
 This is done via a rake task that is run every day.
+
+The task is:
+
+    rake gdpr:purge
 
 There seem to be a couple of bugs with current implementation though:
 
@@ -132,9 +136,9 @@ The numbers are correct, but:
 
 1. We do a count for all matches where the current user is the winner
 2. We calculate matches played and won ruby-side, instead of in the db
-3. We unnecessarily load full Match objects even though we don't need most Match fields
+3. We unnecessarily load full Match objects even though we don't need most Match attributes
 
-There's got to be a way to return with info with fewer queries and without loading so many ruby objects...
+There's got to be a way to return this info with fewer queries and without loading so many ruby objects...
 
 Can you improve on this?
 
@@ -175,7 +179,7 @@ When would it make sense for this cache to expire?
 
 The app uses [rollbar](https://rollbar.com/) for error reporting. You'll need to sign up to rollbar and create a project to be able to complete this task. 
 
-Currently we report errors occurring whenever we use the super buggy SDK from our Anti-Cheat Reputation provider.
+Currently we explicitly report errors occurring whenever we use the super buggy SDK from our Anti-Cheat Reputation provider.
 
 Can you check the [rollbar documentation](https://docs.rollbar.com/docs/ruby#section-getting-started) and find pass more info to the error notification so that we have some context?
 

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  constraints subdomain: 'api' do
+    namespace :api, path: nil, defaults: { format: :json } do
+      resources :games, only: [:index]
+    end
+  end
+
   resource :dashboard, only: :show
 
   resources :games, only: [:index] do
@@ -9,10 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only: [:index, :new, :create]
-
-  namespace :api do
-    resources :games, only: [:index]
-  end
 
   root to: 'dashboards#show'
 end

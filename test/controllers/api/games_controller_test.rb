@@ -4,7 +4,7 @@ module Api
   class GamesControllerTest < ActionDispatch::IntegrationTest
 
     test 'get index' do
-      get api_games_url, as: :json
+      get api_games_url(subdomain: :api), as: :json
       assert_response :success
       assert_equal expected_json, JSON.parse(response.body, symbolize_names: true)
     end
