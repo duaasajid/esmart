@@ -36,15 +36,30 @@ mpitsilos@welcomepickups.com
 
 Copy file `.env_sample` to `.env` and replace the env variable values so that they make sense for your environment.
 
+# Running the app
+
+- Install ruby `2.5.1` using [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
+- Install bundler 
+```
+gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+```
+- Install webpack dependencies
+```
+yarn install
+```
+- Configure your DB connection and run
+```
+rails db:create && rails db:schema:load
+```
+
 # Seeds
 
 After setting up your database, you can populate it with some sample data running:
 
     rake db:seed
 
-# Running the app
-
-To run the app you can execute:
+# Starting the webserver
+To start the web server and sidekiq you can execute:
 
     foreman start -f Procfile.dev
 
