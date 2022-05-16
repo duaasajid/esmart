@@ -30,7 +30,7 @@ You can fork this app to your own account to make required changes.
 
 You can address your email to:
 
-mpitsilos@welcomepickups.com
+savvas@welcomepickups.com
 
 # Configuration
 
