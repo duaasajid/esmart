@@ -87,7 +87,7 @@ Please try to do them in the order they are listed and implement each task **in 
 
 Tasks that are marked *optional* can be skipped, but it's useful to go through them and at the very least think of how you would go about implementing them.
 
-## Git
+## #1 Git
 
 We were so absorbed testing with fixture data that we forgot to check what happens when a new user signs up.
 
@@ -106,7 +106,7 @@ There are some fix commits in there we ideally don't want to have "polluting" ma
 
 You'll need this fix to be unblocked for the rest of the tasks, so at the very least, just merge it to `master` if in doubt.
 
-## Test coverage (Optional)
+## #2 Test coverage (Optional)
 
 We started out with the best intentions to test whatever we write, but in classic startup fashion we got side-tracked. :-(
 
@@ -116,7 +116,7 @@ In your email to us, please include 1-2 sentences on why you chose to test what 
 
 ## Bug fixes
 
-### GDPR purge task
+### #3 GDPR purge task
 
 Oddly, the project team insisted we incorporate GDPR provisions from the get-go.
 Better safe than sorry we suppose.
@@ -143,7 +143,7 @@ Can you fix the above issues?
 
 ## Performance improvements
 
-### User stats
+### #4 User stats
 
 There is something fishy about the way the user stats are calculated on the main dashboard.
 
@@ -157,11 +157,11 @@ There's got to be a way to return this info with fewer queries and without loadi
 
 Can you improve on this?
 
-### N+1
+### #5 N+1
 
 Can you locate and fix the N+1 queries on the `games#index` page?
 
-### Expensive operation
+### #6 Expensive operation
 
 Whenever a user signs up, we fetch their Anti-Cheat Reputation from a 3rd party service based on their email.
 
@@ -180,7 +180,7 @@ Can you handle his improvement?
 
 You can use a gem already in the Gemfile to tackle this.
 
-### Api caching (Optional)
+### #7 Api caching
 
 While the app doesn't really do much (at the moment), we have decided to start with an API early on.
 
@@ -190,7 +190,7 @@ Can you implement caching for this endpoint so that we don't hit the db needless
 
 When would it make sense for this cache to expire?
 
-## Error reporting (Optional)
+## #8 Error reporting (Optional)
 
 The app uses [rollbar](https://rollbar.com/) for error reporting. You'll need to sign up to rollbar and create a project to be able to complete this task. 
 
@@ -207,14 +207,14 @@ Can you check the [rollbar documentation](https://docs.rollbar.com/docs/ruby#sec
 
 ## New features
 
-### Email confirmation
+### #9 Email confirmation (Optional)
 
 We unfortunately didn't implement user email confirmation in this early version of our app and we fear we're going to have a lot of fraudulent sign-ups.
 
 Can you implement email confirmation for our User model?
 Preferably use functionality offered by the gems we already have, instead of rolling your own.
 
-## Username support (Optional)
+## #10 Username support (Optional)
 
 Beta-testers have reported that they would prefer to be able to set their username upon sign-up.
 
@@ -226,7 +226,7 @@ Can you add this functionality?
 
 You'll find that [devise](https://github.com/plataformatec/devise), the authentication gem used, has documentation on how to implement this.
 
-### Reputation re-check
+### #11 Reputation re-check
 
 We currently set the User reputation only once upon sign-up.
 
@@ -237,7 +237,7 @@ Your mission, should you choose to accept it, is to create the aforementioned ra
 
 **Note:** You don't need to set up the daily interval yourself, this will be handled by [heroku scheduler](https://devcenter.heroku.com/articles/scheduler) on production.
 
-### Game API url validation
+### #12 Game API url validation
 
 As it is, the `api_url` the `Game` model is not checked for validity.
 
@@ -246,7 +246,7 @@ Can you write a URL validation conforming to the following specs?
 1. It need only validate the URL format, no need to actually check DNS lookup / connectivity etc
 2. It should be re-usable in case we add URL attributes to other models
 
-### Start Match Functionality
+### #13 Start Match Functionality (Optional)
 
 Our app has no page yet for users to start a match.
 
@@ -263,7 +263,7 @@ Validation should also happen on the controller level: the controller should not
 
 Feel free to add any validation / policy necessary to enforce this on the backend.
 
-### API auth
+### #14 API auth
 
 Our API currently doesn't check for proper authorization, it just returns results to anyone without access control.
 
@@ -280,7 +280,7 @@ Assume API tokens will be created by an admin via the console for the time being
 
 Don't forget to test whatever you write!
 
-### Styling (Optional)
+### #15 Styling (Optional)
 
 Our sign in page, offered by devise, is "kind of" poorly styled.
 
@@ -294,8 +294,6 @@ Can you apply bootstrap styles to the following templates?
 ## Trivia
 
 Please share your thoughts about the following points in 1-2 sentences max:
-
-* Which popular component of rails 3.x-4.x apps is not being used here?
 
 * Can you think of some input validation that is missing from all forms / models of the app?
 
