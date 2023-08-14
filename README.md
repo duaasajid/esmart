@@ -35,10 +35,11 @@ savvas@welcomepickups.com
 # Configuration
 
 Copy file `.env_sample` to `.env` and replace the env variable values so that they make sense for your environment.
+If you do not plan to use Rollbar, remove `ROLLBAR_ACCESS_TOKEN` env var from `.env` (see about Rollbar below).
 
 # Running the app
 
-- Install ruby `2.5.1` using [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
+- Install ruby `2.6.10` using [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
 - Install bundler 
 ```
 gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
@@ -51,6 +52,10 @@ yarn install
 ```
 rails db:create && rails db:schema:load
 ```
+
+Notes:
+- `node` version must be `v12.18.3` or above
+- `node` package requires `python 2.7`
 
 # Seeds
 

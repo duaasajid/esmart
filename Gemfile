@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.10'
 
 gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'webpacker'
 
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -18,8 +17,11 @@ gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'sprockets', '3.7.2'
+gem 'webpacker', '~> 5.4.3'
+
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'minitest-rails'
   gem 'simplecov', require: false
   gem 'dotenv-rails'
@@ -52,4 +54,4 @@ gem 'pundit'
 gem 'high_voltage'
 gem 'draper'
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
