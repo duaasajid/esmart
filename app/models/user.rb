@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :reputation, numericality: true, allow_nil: true
 
   # Callbacks
-  after_commit :fetch_reputation, on: :create
+  #after_commit :fetch_reputation, on: :create
 
   def cheater?
     reputation && reputation < 7.0
