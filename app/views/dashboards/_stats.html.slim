@@ -1,5 +1,5 @@
 .card
-  h5.card-header Total points: #{current_user.matches_won.count}
+  h5.card-header Total points: #{@count_matches_won}
   .card-body
     table.table.table-centered
       thead
@@ -9,11 +9,12 @@
           th L
           th T
       tbody
-        - @matches_played.group_by { |m| m.game }.each do |game, matches|
+        - @user_game_statistics.each do |game_id,total_matches, match_won, match_lost|
+          - game = find_game(game_id)
           tr
             td= image_tag game.logo.variant(resize: '100x75'), alt: game.title, title: game.title
-            td= matches.count { |m| m.winner == current_user }
-            td= matches.count { |m| m.winner != current_user }
-            td= matches.size
+            td= match_won 
+            td= match_lost
+            td= total_matches
   .card-footer
     = link_to 'Go to games', games_path, class: 'btn btn-primary'
