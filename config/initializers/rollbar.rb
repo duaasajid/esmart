@@ -1,4 +1,5 @@
 Rollbar.configure do |config|
+
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
 
@@ -20,8 +21,14 @@ Rollbar.configure do |config|
 
   # If you want to attach custom data to all exception and message reports,
   # provide a lambda like the following. It should return a hash.
-  # config.custom_data_method = lambda { {:some_key => "some_value" } }
-
+  config.custom_data_method = lambda do |controller|
+    {
+      user_id: controller.request.env['rollbar.user_id'],
+      user_email: controller.request.env['rollbar.user_email'],
+      remote_ip: controller.request.remote_ip,
+      user_agent: controller.request.user_agent
+    }
+  end
   # Add exception class names to the exception_level_filters hash to
   # change the level that exception is reported at. Note that if an exception
   # has already been reported and logged the level will need to be changed

@@ -13,9 +13,9 @@ class ReputationFetcher
   def fetch
     begin
       client.get_reputation(email)
-    rescue AntiCheat::RandomError => e
-      Rollbar.error(e)
-      nil
+    rescue => e
+      Rollbar.error(e, user_email: current_user.email, user_id: current_user.id,
+      user_agent: request.user_agent, remote_ip: request.remote_ip)
     end
   end
 
