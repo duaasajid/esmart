@@ -4,7 +4,9 @@ class GamesController < ApplicationController
   before_action :set_game, except: [:index]
 
   def index
-    @games = policy_scope(Game).includes(:gamer_profiles, :matches, :users)
+    @games = Rails.cache.fetch('games_index') do
+      policy_scope(Game).includes(:gamer_profiles, :matches, :users)
+    end
   end
 
   def add
