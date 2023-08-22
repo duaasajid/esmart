@@ -14,8 +14,7 @@ class ReputationFetcher
     begin
       client.get_reputation(email)
     rescue => e
-      Rollbar.error(e, user_email: current_user.email, user_id: current_user.id,
-      user_agent: request.user_agent, remote_ip: request.remote_ip)
+      Rollbar.error(e, user_email: email, user_id: User.find_by_email(email).id)
     end
   end
 
