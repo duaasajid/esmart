@@ -55,5 +55,6 @@ gem 'foreman'
 gem 'pundit'
 gem 'high_voltage'
 gem 'draper'
+gem 'validate_url'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
