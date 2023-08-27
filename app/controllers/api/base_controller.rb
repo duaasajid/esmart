@@ -9,8 +9,12 @@ module Api
     private
 
     def authorize
-      # TODO
+      api_key = request.headers['Authorization']
+      @api_key = ApiKey.find_by(key: api_key, revoked: false)
+  
+      unless @api_key
+        render json: { error: 'Unauthorized' }, status: :unauthorized
+      end
     end
-
   end
 end
