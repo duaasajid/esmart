@@ -20,6 +20,9 @@ class User < ApplicationRecord
   # Callbacks
   after_commit :fetch_reputation, on: :create
 
+  #scopes
+  scope :opponents, -> (user_id, game_id) { where.not(id: user_id).joins(:gamer_profiles).where(gamer_profiles: { game_id: game_id }) }
+
   def cheater
     reputation && reputation < 7.0
   end

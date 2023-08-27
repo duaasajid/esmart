@@ -1,0 +1,29 @@
+<%= form_with(model: @match, url: matches_path, local: true) do |form| %>
+  <%= form.collection_select :game_id, @user_games, :id, :title, { prompt: 'Select a game' }, { onchange: "updateOpponents()" } %>
+  <div id="opponents-dropdown">
+    <%= render partial: 'opponents_dropdown', locals: { opponents: @user_opponents } %>
+  </div>
+  
+  <%= form.submit 'Create Match' %>
+<% end %>
+  
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+  function updateOpponents() {
+  var gameId = document.getElementById("game_id").value;
+  var opponents = [];
+  $.ajax({
+    url: '/matches/user_game_opponents',
+    type: 'GET',
+    data: { gameId: gameId },
+    success: function(data) {
+      $('#opponents-dropdown').html(data);
+    },
+    error: function(xhr, status, error) {
+      console.error(error);
+    }
+  });
+  }
+</script>

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     post :remove, on: :member
   end
 
-  resources :matches, only: [:index, :new, :create]
-
+  resources :matches, only: [:index, :new, :create]  do
+    collection do
+      get :user_game_opponents
+    end
+  end
   root to: 'dashboards#show'
 end
