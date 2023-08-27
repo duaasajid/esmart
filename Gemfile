@@ -56,5 +56,6 @@ gem 'pundit'
 gem 'high_voltage'
 gem 'draper'
 gem 'validate_url'
+gem 'bootstrap'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
